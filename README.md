@@ -80,12 +80,12 @@ Therefore, repeated provider IDs were not automatically treated as errors.
 - Duplicate Investigation
 - Fact Table Creation
 - Dimension Table Creation
-- One-to-Many Relationships
 - Data Modelling
-- Dashboard Development
+- One-to-Many Relationships
+- DAX Measures
 - KPI Development
 - Data Visualization
-
+- Power BI Dashboard Development
 ---
 
 ## 🔄 Project Workflow
