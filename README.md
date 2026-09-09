@@ -1,5 +1,4 @@
-# 🦷 Healthcare Data Cleaning, Modelling & Dashboard Analysis
-
+# 🦷 Dental Services & Utilization Analysis Dashboard
 ## 📌 Project Overview
 
 This project involved cleaning, transforming, modelling, and analysing a healthcare provider dataset obtained from Kaggle.
@@ -35,9 +34,8 @@ The main objectives of this project were to:
 
 **Source:** Kaggle
 
-**Dataset Type:** Healthcare Provider Data
-
-The dataset contained information relating to healthcare providers, service utilisation, users, age groups, delivery systems, and provider classifications.
+**Dataset Type:** Dental services/provider utilisation data
+The dataset contained information on dental service providers, patient/user utilisation, age groups, delivery systems, provider types, and the number of dental services provided.
 
 ### Key Variables
 
@@ -112,7 +110,7 @@ Insights & Findings
 
 ## 🧹 Data Preparation
 
-I began the project by importing the raw healthcare dataset into Power Query.
+I began the project by importing the raw dental service dataset into Power Query.
 
 ### 1. Promoted Headers
 
