@@ -60,14 +60,15 @@ Therefore, repeated provider IDs were not automatically treated as errors.
 
 ## 🛠️ Tools & Techniques
 
-### Tools
+### Tools Used
 
 - Microsoft Excel
 - Power Query
 - Power Pivot
+- Power BI
 - DAX
 - Data Modelling
-
+  
 ### Techniques
 
 - Data Cleaning
