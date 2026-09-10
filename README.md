@@ -378,7 +378,7 @@ The provider analysis highlighted providers with particularly high services-per-
 
 ### Dental Services & Utilization Dashboard
 
-[<img width="1615" height="810" alt="Dental dashboard" src="https://github.com/user-attachments/assets/9dd14a40-5c07-47f4-affc-5b187379167d" />](dashboard-image.png)
+[https://github.com/Roshydah-07/Power-Query-Cleaning/blob/main/Dental%20dashboard.png](dashboard-image.png)
 
 
 <!-- Example:
