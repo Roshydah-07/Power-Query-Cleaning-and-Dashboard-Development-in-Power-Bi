@@ -1,15 +1,16 @@
-# 🦷 Dental Services & Utilization Analysis Dashboard
+# 🦷 Dental Services & Utilization Dashboard
+
 ## 📌 Project Overview
 
-This project involved cleaning, transforming, modelling, and analysing a healthcare provider dataset obtained from Kaggle.
+This project involved cleaning, transforming, modelling, and analysing a dental services dataset obtained from Kaggle.
 
-I started by cleaning and preparing the raw healthcare data using Microsoft Excel Power Query. The dataset contained provider information, age groups, delivery systems, provider types, user counts, service counts, previous user counts, and supporting annotation fields.
+I started by cleaning and preparing the raw dental dataset using Microsoft Excel Power Query. The dataset contained information on dental service providers, users, age groups, delivery systems, provider types, service counts, and other supporting fields.
 
 After cleaning the data, I structured it into fact and dimension tables and worked with Power Pivot to understand data modelling and one-to-many relationships.
 
-I later continued the project by using the prepared dataset to build a dashboard for analysing healthcare service utilisation and provider performance.
+I later continued working with the same dataset in Power BI, where I developed an interactive Dental Services & Utilization Dashboard to analyse service volume, provider performance, delivery systems, age groups, and service categories.
 
-This project represents my practical learning journey from raw data preparation to data modelling and dashboard development.
+This project represents my practical learning journey from raw data cleaning to data modelling, analysis, and dashboard development.
 
 ---
 
@@ -17,16 +18,17 @@ This project represents my practical learning journey from raw data preparation 
 
 The main objectives of this project were to:
 
-- Clean and transform the raw healthcare dataset.
+- Clean and transform the raw dental dataset.
 - Standardise inconsistent text and values.
 - Handle missing and blank records appropriately.
 - Check data quality using Power Query profiling tools.
-- Prepare the dataset for analysis and modelling.
-- Separate measurable records from descriptive information.
+- Prepare the dataset for analysis and data modelling.
+- Separate detailed records from descriptive information.
 - Create fact and dimension tables.
 - Understand and apply one-to-many relationships.
-- Analyse healthcare service utilisation and provider performance.
-- Develop a dashboard that communicates important findings clearly.
+- Analyse dental service utilisation and provider performance.
+- Create an interactive Power BI dashboard.
+- Present key findings through KPIs and data visualisations.
 
 ---
 
@@ -34,15 +36,16 @@ The main objectives of this project were to:
 
 **Source:** Kaggle
 
-**Dataset Type:** Dental services/provider utilisation data
-The dataset contained information on dental service providers, patient/user utilisation, age groups, delivery systems, provider types, and the number of dental services provided.
+**Dataset Type:** Dental Services and Provider Data
+
+The dataset contained information on dental service providers, users, age groups, delivery systems, provider types, service counts, previous user counts, and supporting annotation fields.
 
 ### Key Variables
 
-- `RENDERING_NPI` — Provider identifier
+- `RENDERING_NPI` — Dental service provider identifier
 - `PROVIDER_LEGAL_NAME` — Provider name
 - `CALENDAR_YEAR` — Year
-- `DELIVERY_SYSTEM` — Delivery system
+- `DELIVERY_SYSTEM` — Dental service delivery system
 - `PROVIDER_TYPE` — Provider classification
 - `AGE_GROUP` — Age category
 - `ADV_USER_CNT` — User count
@@ -50,7 +53,7 @@ The dataset contained information on dental service providers, patient/user util
 - `PREV_USER_CNT` — Previous user count
 - Annotation fields — Supporting measure information
 
-An important characteristic of the dataset was that the same provider could appear multiple times because providers could have records for different age groups.
+An important characteristic of the dataset was that the same dental provider could appear multiple times because providers could have records for different age groups.
 
 Therefore, repeated provider IDs were not automatically treated as errors.
 
@@ -58,15 +61,14 @@ Therefore, repeated provider IDs were not automatically treated as errors.
 
 ## 🛠️ Tools & Techniques
 
-### Tools Used
+### Tools
 
 - Microsoft Excel
 - Power Query
 - Power Pivot
 - Power BI
 - DAX
-- Data Modelling
-  
+
 ### Techniques
 
 - Data Cleaning
@@ -84,11 +86,12 @@ Therefore, repeated provider IDs were not automatically treated as errors.
 - KPI Development
 - Data Visualization
 - Power BI Dashboard Development
+
 ---
 
 ## 🔄 Project Workflow
 
-Raw Healthcare Dataset  
+Raw Dental Dataset  
 ↓  
 Power Query Import  
 ↓  
@@ -98,9 +101,11 @@ Data Quality Checks
 ↓  
 Fact & Dimension Tables  
 ↓  
-Power Pivot Data Model  
+Power Pivot Data Modelling  
 ↓  
-Data Analysis  
+Power BI  
+↓  
+DAX Measures & KPIs  
 ↓  
 Dashboard Development  
 ↓  
@@ -110,7 +115,7 @@ Insights & Findings
 
 ## 🧹 Data Preparation
 
-I began the project by importing the raw dental service dataset into Power Query.
+I began the project by importing the raw dental dataset into Power Query.
 
 ### 1. Promoted Headers
 
@@ -127,7 +132,7 @@ I reviewed the data types and assigned appropriate types to the columns.
 
 ### 3. Removed Blank Rows
 
-I checked for unnecessary blank records and removed them so that empty rows would not be treated as healthcare records.
+I checked for unnecessary blank records and removed them so that empty rows would not be treated as dental service records.
 
 ### 4. Handled Missing Values
 
@@ -158,11 +163,11 @@ This helped me verify the quality of the transformed dataset.
 
 ## 🧩 Fact & Dimension Tables
 
-After cleaning the data, I separated detailed healthcare records from descriptive information.
+After cleaning the data, I separated detailed dental service records from descriptive information.
 
 ### Fact Healthcare
 
-The Fact Healthcare table retained the detailed healthcare records and measurable information such as:
+The detailed records were retained in the fact table and contained measurable information such as:
 
 - Advanced user counts
 - Advanced service counts
@@ -172,7 +177,7 @@ The Fact Healthcare table retained the detailed healthcare records and measurabl
 - Year
 - Delivery system
 
-The fact table represents **what happened**.
+The fact table represents **what happened** within the dataset.
 
 ### Dimension Tables
 
@@ -195,7 +200,9 @@ The model followed a one-to-many relationship structure:
 
 **Dim Provider → Fact Healthcare**
 
-The dimension tables represent the "one" side, while the Fact Healthcare table represents the "many" side.
+The dimension tables represent the "one" side, while the fact table represents the "many" side.
+
+This modelling stage helped me understand how descriptive information can be separated from detailed dental service records.
 
 ---
 
@@ -226,7 +233,7 @@ The correct approach was to investigate what each record represented before remo
 
 I learned that a dimension table needs a unique key on the "one" side of a one-to-many relationship.
 
-The Fact Healthcare table can contain repeated foreign-key values because the same provider or category can occur across multiple records.
+The fact table can contain repeated provider IDs because the same provider can have multiple dental service records.
 
 I therefore restructured the dimension tables around unique values.
 
@@ -249,7 +256,7 @@ I also encountered an issue where Close & Load To did not behave as expected for
 
 This helped me understand that Power Query queries do not always need to be loaded directly into an Excel worksheet.
 
-Depending on the purpose of the query, it can instead be loaded into the Data Model.
+Depending on the purpose of the query, a query can instead be loaded into the Data Model.
 
 ### 5. Provider Text Formatting
 
@@ -264,11 +271,13 @@ I solved this using Power Query transformations such as:
 
 ## 📈 Dashboard Development
 
-After completing the cleaning and modelling stages, I continued the project by developing a dashboard to analyse healthcare service utilisation and provider performance.
+After completing the data cleaning and modelling stages, I continued the project in Power BI.
 
-The dashboard was designed to provide a high-level view of:
+I used the prepared dental dataset to develop an interactive **Dental Services & Utilization Dashboard**.
 
-- Total services
+The dashboard was designed to provide an overview of:
+
+- Total dental services
 - Total providers
 - Total users
 - Services per user
@@ -276,19 +285,19 @@ The dashboard was designed to provide a high-level view of:
 - Service distribution
 - Provider performance
 - Age-group service volume
-- Service categories
+- Dental service categories
 
 ### Dashboard Visuals
 
-The dashboard included:
-
 #### 1. Services by Delivery System
 
-A donut chart showing the distribution of healthcare services across delivery systems.
+A donut chart showing the distribution of dental services across delivery systems.
+
+Fee-for-Service represented the largest portion of the displayed distribution.
 
 #### 2. Services by Age Group & Category
 
-A bar chart comparing service volumes across age groups and service categories such as:
+A bar chart comparing dental service volumes across age groups and service categories, including:
 
 - Treatment
 - Preventive
@@ -304,15 +313,18 @@ A table comparing providers using measures such as:
 
 #### 4. Age Group Volume Distribution
 
-A column chart comparing service volume across the available age groups.
+A column chart comparing total dental service volume between:
+
+- AGE 0-20
+- AGE 21+
 
 #### 5. Top 10 Providers by Total Services
 
-A bar chart highlighting the providers with the highest total service counts.
+A bar chart highlighting the providers with the highest total dental service counts.
 
 #### 6. Dental Care Pipeline
 
-A funnel visual showing the distribution of services across major service categories.
+A funnel visual showing the distribution of dental services across major service categories.
 
 ---
 
@@ -328,51 +340,55 @@ The dashboard included the following KPIs:
 | Services per User | 6.38 |
 | Preventive Services | 14M |
 
-These KPIs provide a quick overview of healthcare service utilisation and provider activity.
+These KPIs provide a quick overview of dental service utilisation and provider activity.
 
 ---
 
 ## 💡 Key Findings
 
-### 1. Treatment Services Represented the Largest Service Category
+### 1. Treatment Was the Largest Service Category
 
-Treatment services accounted for the largest volume within the service-category analysis, followed by preventive services and examinations.
+Treatment services recorded the largest volume among the major dental service categories, followed by preventive services and examinations.
 
 ### 2. Fee-for-Service Was the Dominant Delivery System
 
-The delivery-system analysis showed that Fee-for-Service represented the majority of recorded services, accounting for approximately 85% of the displayed service distribution.
+The delivery-system analysis showed that Fee-for-Service accounted for approximately 85% of the displayed dental service distribution.
 
-### 3. Younger Age Group Had Higher Service Volume
+### 3. AGE 0-20 Recorded Higher Service Volume
 
-The age-group analysis showed that the AGE 0-20 group recorded a higher service volume than the AGE 21+ group in the dashboard.
+The age-group analysis showed that the AGE 0-20 group recorded a higher total service volume than the AGE 21+ group in the dashboard.
 
-### 4. Provider Performance Varied Considerably
+### 4. Provider Performance Varied
 
-The provider analysis showed differences in the number of users served, total services recorded, and services per user.
+The provider leaderboard showed differences in:
 
-The top-performing providers therefore did not necessarily have the same performance profile across every measure.
+- Number of users
+- Total services
+- Services per user
 
-### 5. Some Providers Had High Services per User
+This showed that total service volume alone does not provide a complete picture of provider performance.
 
-The provider leaderboard highlighted providers with particularly high services-per-user values, showing that service volume alone does not provide the complete picture of provider utilisation.
+### 5. Some Providers Recorded High Services per User
+
+The provider analysis highlighted providers with particularly high services-per-user values, providing another perspective for understanding dental service utilisation.
 
 ---
 
 ## 📷 Dashboard Preview
 
-### Healthcare Services & Utilization Dashboard
+### Dental Services & Utilization Dashboard
 
 _Add dashboard screenshot here._
 
 <!-- Example:
-![Healthcare Services & Utilization Dashboard](dashboard-image.png)
+![Dental Services & Utilization Dashboard](dashboard-image.png)
 -->
 
 ---
 
 ## 🧠 What I Learned
 
-This project strengthened my practical understanding of the complete data preparation and modelling process.
+This project strengthened my understanding of the complete data analytics workflow, from data preparation to dashboard development.
 
 ### Technical Skills
 
@@ -386,8 +402,10 @@ This project strengthened my practical understanding of the complete data prepar
 - Why dimension keys need to be unique.
 - How one-to-many relationships work.
 - How Power Pivot supports data modelling.
+- How DAX measures can support dashboard analysis.
+- How Power BI can be used to create interactive dashboards.
 - How data modelling affects dashboard development.
-- How to create and interpret dashboard KPIs and visualisations.
+- How to create and interpret KPIs and visualisations.
 
 ### Problem-Solving Skills
 
@@ -403,12 +421,53 @@ Understanding the meaning of the data helped me distinguish between legitimate r
 
 ## 🚀 Project Outcome
 
-I transformed a raw healthcare provider dataset into a cleaner and more structured dataset suitable for analysis and data modelling.
+I transformed a raw dental services dataset into a cleaner and more structured dataset suitable for analysis and data modelling.
 
-The project progressed from:
+I then continued the project by using the prepared dataset in Power BI to create an interactive Dental Services & Utilization Dashboard.
 
-**Data Cleaning → Data Transformation → Data Profiling → Fact & Dimension Tables → Data Modelling → Dashboard Development → Insights**
+The project progressed through:
 
-This project gave me practical experience working with a real-world style dataset and strengthened my understanding of how data preparation and modelling support business intelligence and dashboard development.
+**Data Cleaning → Data Transformation → Data Profiling → Fact & Dimension Tables → Data Modelling → Power BI → DAX → Dashboard → Insights**
+
+This project gave me practical experience working with a real-world-style dental services dataset and strengthened my understanding of how data preparation and modelling support business intelligence and dashboard development.
 
 ---
+
+## ⚠️ Analytical Note
+
+The findings presented in this project describe patterns observed in the dataset.
+
+They should be interpreted as descriptive insights from the available data and should not automatically be interpreted as causal relationships.
+
+---
+
+## 👩🏽‍💻 About This Project
+
+This project is part of my self-directed Data Analytics learning journey.
+
+I worked through the project in stages, beginning with data cleaning and transformation using Microsoft Excel Power Query, followed by data modelling using Power Pivot.
+
+Months later, I continued working with the same dataset in Power BI and developed an interactive dashboard to analyse dental service utilisation and provider performance.
+
+This project helped me move beyond simply creating charts and strengthened my understanding of the importance of data preparation, table structure, relationships, modelling, DAX, and dashboard design.
+
+### Project Type
+
+Self-Learning / Data Analytics Project
+
+### Tools Used
+
+- Microsoft Excel
+- Power Query
+- Power Pivot
+- Power BI
+- DAX
+- Data Modelling
+
+---
+
+## 👤 Author
+
+**Rasheedat Oseni**
+
+Aspiring Data Analyst | Excel | Power Query | Power BI
